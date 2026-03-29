@@ -1,0 +1,97 @@
+{
+  "site": {
+    "title": "GameSeeds",
+    "header_label": "Rational Insanity Universe",
+    "tagline": "lo-fi strategy experiments from the static zone",
+    "footer_left": "GameSeeds — Rational Insanity Universe",
+    "footer_right": "More conflicts incoming"
+  },
+  "defaults": {
+    "desktop_download_url": "",
+    "desktop_download_label": "Download desktop app",
+    "desktop_unavailable_message": "Desktop build not published yet — check back or build from source.",
+    "play_unavailable_message": "Web build not deployed for this title yet.",
+    "repo_url": "",
+    "accent": "teal",
+    "status": "placeholder"
+  },
+  "projects": [
+    {
+      "id": "dynamicgo",
+      "workspace_path": "GameSeeds/DynamicGO",
+      "type": "game",
+      "title": "Dynamic GO",
+      "short_title_html": "Dynamic<br>GO",
+      "genre": "Real-time zone control · 1v1 or vs AI",
+      "description_html": "Proxy war in the Static Zone.<br>Dwarves vs Elves. Place anchors. Hold territory. Encircle.",
+      "status": "live",
+      "accent": "amber",
+      "play_url": "/games/dynamicgo/play/",
+      "listing_href": "/games/dynamicgo/",
+      "desktop_download_url": "/downloads/dynamicgo/",
+      "repo_url": ""
+    },
+    {
+      "id": "ascendant-expanse",
+      "workspace_path": "GameSeeds/AscendantExpanse",
+      "type": "game",
+      "title": "Ascendant Expanse",
+      "short_title_html": "Ascendant<br>Expanse",
+      "genre": "TBD — workspace game seed",
+      "description_html": "Placeholder page. Replace copy, links, and status when the title is public.",
+      "accent": "teal"
+    },
+    {
+      "id": "rational-insanity",
+      "workspace_path": "GameSeeds/RationalInsanity",
+      "type": "game",
+      "title": "Rational Insanity",
+      "short_title_html": "Rational<br>Insanity",
+      "genre": "TBD — universe / branding hub",
+      "description_html": "Placeholder. Wire hero, links, and downloads when marketing assets exist.",
+      "accent": "amber"
+    },
+    {
+      "id": "sword-district",
+      "workspace_path": "GameSeeds/SwordDistrict",
+      "type": "game",
+      "title": "Sword District",
+      "short_title_html": "Sword<br>District",
+      "genre": "TBD — see project docs",
+      "description_html": "Placeholder landing. Integrate screenshots and build links from the Sword District repo.",
+      "accent": "teal"
+    },
+    {
+      "id": "venus-wars",
+      "workspace_path": "GameSeeds/VenusWars",
+      "type": "game",
+      "title": "Venus Wars",
+      "short_title_html": "Venus<br>Wars",
+      "genre": "TBD — desktop / strategy",
+      "description_html": "Placeholder. Add store or artifact URL for desktop builds when CI publishes them.",
+      "accent": "amber"
+    },
+    {
+      "id": "zodiac-wars",
+      "workspace_path": "GameSeeds/ZodiacWars",
+      "type": "game",
+      "title": "Zodiac Wars",
+      "short_title_html": "Zodiac<br>Wars",
+      "genre": "TBD — workspace game seed",
+      "description_html": "Placeholder page for Zodiac Wars.",
+      "accent": "teal"
+    },
+    {
+      "id": "mouthpiece",
+      "workspace_path": "Apps/MouthPiece",
+      "type": "app",
+      "title": "MouthPiece",
+      "short_title_html": "Mouth<br>Piece",
+      "genre": "Android app — workspace project",
+      "description_html": "Placeholder. Link to Play Store or APK when releases exist; desktop N/A unless you ship one.",
+      "accent": "amber",
+      "desktop_download_url": "",
+      "desktop_unavailable_message": "No desktop build for this app — use the Android release when available."
+    }
+  ]
+}

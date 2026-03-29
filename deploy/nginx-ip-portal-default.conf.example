@@ -1,0 +1,48 @@
+# Example: IP 89.167.105.97 — HTTPS catalog (portal) + Phaser under /games/dynamicgo/play/
+# Install under /etc/nginx/sites-available/ and enable; include $connection_upgrade map in http{}
+# (see conf.d snippet in PORTAL_AND_PAGES.md). Uses existing self-signed cert until Let's Encrypt.
+#
+# If you previously had a separate `listen 443 ssl; server_name _;` vhost with root=/var/www/dynamicgo,
+# disable that site so only this file owns default SSL for the IP (avoids duplicate listen / wrong root).
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name 89.167.105.97 _;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl default_server;
+    listen [::]:443 ssl default_server;
+    server_name 89.167.105.97 _;
+
+    ssl_certificate     /etc/ssl/certs/dynamicgo-selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/dynamicgo-selfsigned.key;
+
+    root /var/www/portal;
+    index index.html;
+
+    gzip on;
+    gzip_types text/css application/javascript application/json;
+
+    # Phaser: REMOTE_WWW=/var/www/portal/games/dynamicgo/play bash tools/deploy-www-production.sh
+    # with alias target /var/www/dynamicgo/ on disk, or rsync into portal tree and retarget alias.
+    location ^~ /games/dynamicgo/play/ {
+        alias /var/www/dynamicgo/;
+    }
+
+    location ~ ^/ws {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_read_timeout 3600s;
+    }
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
